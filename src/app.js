@@ -13,7 +13,7 @@ function validateRepositoryId(request, response, next) {
       return response.status(400).json({ error: 'Invalid project ID.' });
   }
 
-  return next(); //Se o ID for validado, vai para a próxima função.
+  return next(); //Se o ID for validado, continua o código.
 }
 
 app.use('/repositories/:id', validateRepositoryId); //Chamada da função de validação.
@@ -38,9 +38,9 @@ app.post("/repositories", (request, response) => { //Cria o repositório.
     likes: 0,
   };
 
-  repositories.push(repository);
+  repositories.push(repository); //Insere os dados no repositório.
 
-  return response.json(repository);
+  return response.json(repository); 
 });
 
 app.put("/repositories/:id", (request, response) => { //Altera o respositório de acordo com a ID.
